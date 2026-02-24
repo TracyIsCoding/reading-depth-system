@@ -1,36 +1,203 @@
+/* 全局重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 容器全局居中 + 粉色主背景 */
 .container {
   max-width: 800px;
   margin: 40px auto;
   font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 0 20px;
+  /* 适配小屏幕 */
+  background-color: #fef7fb;
+  /* 浅粉色全局背景 */
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(252, 247, 251, 0.5);
 }
 
 h1 {
-  text-align: center;
+  margin-bottom: 16px;
+  font-size: 28px;
+  color: #6366f1;
+  /* 蓝色标题 */
 }
 
+/* Slogan样式（粉蓝搭配） */
+.slogan-container {
+  margin-bottom: 30px;
+  color: #6b7280;
+}
+
+.main-slogan {
+  font-size: 18px;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #8b5cf6;
+  /* 紫蓝主slogan */
+}
+
+.sub-slogan {
+  font-size: 14px;
+  margin-bottom: 4px;
+  font-style: italic;
+  color: #d946ef;
+  /* 浅粉紫副slogan */
+}
+
+.desc-slogan {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* 输入区域（粉蓝边框） */
 .input-area {
   display: flex;
   gap: 10px;
   margin-bottom: 30px;
+  justify-content: center;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 input {
   flex: 1;
-  padding: 8px;
+  padding: 10px 12px;
+  border: 1px solid #f9a8d4;
+  /* 粉色输入框边框 */
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fff;
+  transition: border-color 0.2s;
 }
 
+input:focus {
+  outline: none;
+  border-color: #6366f1;
+  /* 聚焦时蓝色边框 */
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+}
+
+/* 主按钮（蓝色） */
 button {
-  padding: 6px 10px;
+  padding: 10px 16px;
   cursor: pointer;
+  background-color: #6366f1;
+  /* 主蓝色按钮 */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  transition: all 0.2s;
+  font-size: 14px;
 }
 
+button:hover {
+  background-color: #4f46e5;
+  /* 按钮hover深一点的蓝 */
+  transform: translateY(-1px);
+}
+
+/* 阅读阶段区域 */
 .level {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #f9a8d4;
+  /* 粉色分隔线 */
   padding: 20px 0;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
 }
 
+.level h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #8b5cf6;
+  /* 阶段标题紫蓝色 */
+  text-align: center;
+}
+
+/* 书籍项样式（粉色背景+蓝色hover） */
 .book {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background-color: #fff;
+  /* 白色书籍项背景 */
+  border: 1px solid #fdf2f8;
+  /* 粉色细边框 */
+  transition: all 0.2s ease;
+}
+
+.book:hover {
+  background-color: #e0e7ff;
+  /* hover时浅蓝色背景 */
+  border-color: #c7d2fe;
+  transform: translateX(2px);
+}
+
+/* 书籍封面核心样式（粉蓝阴影） */
+.book-cover {
+  width: 40px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid #f9a8d4;
+  /* 粉色封面边框 */
+  box-shadow: 0 2px 4px rgba(249, 168, 212, 0.2);
+  /* 粉色浅阴影 */
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* 封面渐显动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* 封面悬浮效果（蓝色阴影） */
+.book:hover .book-cover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 6px 12px rgba(99, 102, 241, 0.15);
+  /* hover时蓝色阴影 */
+  border-color: #6366f1;
+}
+
+/* 无封面占位图样式（粉蓝搭配） */
+.book-cover[src*="placeholder"] {
+  background-color: #fdf2f8;
+  /* 粉色占位图背景 */
+  color: #d946ef;
+  /* 粉色文字 */
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-color: #f9a8d4;
+}
+
+/* 升级按钮（浅粉+蓝色） */
+.book button {
+  padding: 6px 10px;
+  font-size: 12px;
+  /* 粉色升级按钮 */
+}
+
+.book button:hover {
+  background-color: #fffcfd;
+  /* 升级⬆️按钮hover深粉 */
 }
